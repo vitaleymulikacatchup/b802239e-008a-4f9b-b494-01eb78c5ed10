@@ -1,39 +1,45 @@
 "use client";
 
-import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { ThemeProvider } from "@/providers/themeProvider/ThemeProvider";
 import NavbarStyleApple from '@/components/navbar/NavbarStyleApple/NavbarStyleApple';
 import HeroBillboard from '@/components/sections/hero/HeroBillboard';
 import AboutFeature from '@/components/sections/about/AboutFeature';
 import FeatureCardFive from '@/components/sections/feature/FeatureCardFive';
 import TestimonialCardFour from '@/components/sections/testimonial/TestimonialCardFour';
 import FooterBaseReveal from '@/components/sections/footer/FooterBaseReveal';
-import { Sparkles, Music, Users, Star, Heart, Zap, Feather, Wind, Lightbulb } from 'lucide-react';
+import Link from 'next/link';
+import { Sparkles, Music, Users, Star, Heart, Zap, Feather, Wind, Lightbulb, Mail } from 'lucide-react';
 
 export default function HomePage() {
   return (
     <ThemeProvider
       defaultButtonVariant="hover-magnetic"
       defaultTextAnimation="reveal-blur"
-      borderRadius="sharp"
+      borderRadius="rounded"
       contentWidth="medium"
       sizing="medium"
-      background="noiseDiagonalGradient"
-      cardStyle="shadow-colored"
-      primaryButtonStyle="neon-glow-border"
-      secondaryButtonStyle="minimal"
+      background="circleGradient"
+      cardStyle="glass-elevated"
+      primaryButtonStyle="gradient"
+      secondaryButtonStyle="glass"
       showBlurBottom={false}
     >
       <div id="nav" data-section="nav">
         <NavbarStyleApple
           brandName="I-balnik"
           navItems={[
-            { name: "Home", id: "hero" },
-            { name: "About", id: "about" },
-            { name: "Classes", id: "classes" },
-            { name: "Team", id: "team" },
-            { name: "Contact", id: "contact" }
+            { name: "Home", id: "/" },
+            { name: "About", id: "/about" },
+            { name: "Classes", id: "/classes" },
+            { name: "Contact", id: "/contact" }
           ]}
         />
+        <div className="hidden">
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+          <Link href="/classes">Classes</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
       </div>
 
       <div id="hero" data-section="hero">
@@ -46,8 +52,8 @@ export default function HomePage() {
           imageAlt="Professional dancers performing"
           frameStyle="card"
           buttons={[
-            { text: "Explore Classes", href: "classes" },
-            { text: "Contact Us", href: "contact" }
+            { text: "Explore Classes", href: "/classes" },
+            { text: "Contact Us", href: "/contact" }
           ]}
         />
       </div>
@@ -153,23 +159,23 @@ export default function HomePage() {
           {
             title: "Studio",
             items: [
-              { label: "About Us", href: "about" },
-              { label: "Our Classes", href: "classes" },
-              { label: "Meet Our Team", href: "team" }
+              { label: "About Us", href: "/about" },
+              { label: "Our Classes", href: "/classes" },
+              { label: "Contact", href: "/contact" }
             ]
           },
           {
             title: "Resources",
             items: [
               { label: "Schedule", href: "#" },
-              { label: "Testimonials", href: "testimonials" },
-              { label: "FAQ", href: "faq" }
+              { label: "Testimonials", href: "/" },
+              { label: "FAQ", href: "/contact" }
             ]
           },
           {
             title: "Connect",
             items: [
-              { label: "Contact", href: "contact" },
+              { label: "Contact", href: "/contact" },
               { label: "Privacy Policy", href: "#" },
               { label: "Terms of Service", href: "#" }
             ]

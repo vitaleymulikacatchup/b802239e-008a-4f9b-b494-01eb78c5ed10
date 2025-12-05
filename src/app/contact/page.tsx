@@ -1,10 +1,11 @@
 "use client";
 
-import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { ThemeProvider } from "@/providers/themeProvider/ThemeProvider";
 import NavbarStyleApple from '@/components/navbar/NavbarStyleApple/NavbarStyleApple';
 import ContactSplit from '@/components/sections/contact/ContactSplit';
 import FaqSplitText from '@/components/sections/faq/FaqSplitText';
 import FooterBaseReveal from '@/components/sections/footer/FooterBaseReveal';
+import Link from 'next/link';
 import { Mail } from 'lucide-react';
 
 export default function ContactPage() {
@@ -12,13 +13,13 @@ export default function ContactPage() {
     <ThemeProvider
       defaultButtonVariant="hover-magnetic"
       defaultTextAnimation="reveal-blur"
-      borderRadius="sharp"
+      borderRadius="rounded"
       contentWidth="medium"
       sizing="medium"
-      background="noiseDiagonalGradient"
-      cardStyle="shadow-colored"
-      primaryButtonStyle="neon-glow-border"
-      secondaryButtonStyle="minimal"
+      background="circleGradient"
+      cardStyle="glass-elevated"
+      primaryButtonStyle="gradient"
+      secondaryButtonStyle="glass"
       showBlurBottom={false}
     >
       <div id="nav" data-section="nav">
@@ -28,10 +29,15 @@ export default function ContactPage() {
             { name: "Home", id: "/" },
             { name: "About", id: "/about" },
             { name: "Classes", id: "/classes" },
-            { name: "Team", id: "/about" },
-            { name: "Contact", id: "contact" }
+            { name: "Contact", id: "/contact" }
           ]}
         />
+        <div className="hidden">
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+          <Link href="/classes">Classes</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
       </div>
 
       <div id="contact" data-section="contact">
@@ -89,7 +95,7 @@ export default function ContactPage() {
             items: [
               { label: "About Us", href: "/about" },
               { label: "Our Classes", href: "/classes" },
-              { label: "Meet Our Team", href: "/about" }
+              { label: "Contact", href: "/contact" }
             ]
           },
           {
@@ -97,13 +103,13 @@ export default function ContactPage() {
             items: [
               { label: "Schedule", href: "#" },
               { label: "Testimonials", href: "/" },
-              { label: "FAQ", href: "faq" }
+              { label: "FAQ", href: "#" }
             ]
           },
           {
             title: "Connect",
             items: [
-              { label: "Contact", href: "contact" },
+              { label: "Contact", href: "/contact" },
               { label: "Privacy Policy", href: "#" },
               { label: "Terms of Service", href: "#" }
             ]

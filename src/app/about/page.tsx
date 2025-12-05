@@ -1,10 +1,11 @@
 "use client";
 
-import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { ThemeProvider } from "@/providers/themeProvider/ThemeProvider";
 import NavbarStyleApple from '@/components/navbar/NavbarStyleApple/NavbarStyleApple';
 import TeamCardOne from '@/components/sections/team/TeamCardOne';
 import AboutFeature from '@/components/sections/about/AboutFeature';
 import FooterBaseReveal from '@/components/sections/footer/FooterBaseReveal';
+import Link from 'next/link';
 import { Users, Music, Star, Heart } from 'lucide-react';
 
 export default function AboutPage() {
@@ -12,13 +13,13 @@ export default function AboutPage() {
     <ThemeProvider
       defaultButtonVariant="hover-magnetic"
       defaultTextAnimation="reveal-blur"
-      borderRadius="sharp"
+      borderRadius="rounded"
       contentWidth="medium"
       sizing="medium"
-      background="noiseDiagonalGradient"
-      cardStyle="shadow-colored"
-      primaryButtonStyle="neon-glow-border"
-      secondaryButtonStyle="minimal"
+      background="circleGradient"
+      cardStyle="glass-elevated"
+      primaryButtonStyle="gradient"
+      secondaryButtonStyle="glass"
       showBlurBottom={false}
     >
       <div id="nav" data-section="nav">
@@ -26,12 +27,17 @@ export default function AboutPage() {
           brandName="I-balnik"
           navItems={[
             { name: "Home", id: "/" },
-            { name: "About", id: "about" },
+            { name: "About", id: "/about" },
             { name: "Classes", id: "/classes" },
-            { name: "Team", id: "team" },
             { name: "Contact", id: "/contact" }
           ]}
         />
+        <div className="hidden">
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+          <Link href="/classes">Classes</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
       </div>
 
       <div id="about" data-section="about">
@@ -110,9 +116,9 @@ export default function AboutPage() {
           {
             title: "Studio",
             items: [
-              { label: "About Us", href: "about" },
+              { label: "About Us", href: "/about" },
               { label: "Our Classes", href: "/classes" },
-              { label: "Meet Our Team", href: "team" }
+              { label: "Contact", href: "/contact" }
             ]
           },
           {

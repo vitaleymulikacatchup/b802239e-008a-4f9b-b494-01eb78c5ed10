@@ -1,9 +1,10 @@
 "use client";
 
-import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { ThemeProvider } from "@/providers/themeProvider/ThemeProvider";
 import NavbarStyleApple from '@/components/navbar/NavbarStyleApple/NavbarStyleApple';
 import FeatureCardFive from '@/components/sections/feature/FeatureCardFive';
 import FooterBaseReveal from '@/components/sections/footer/FooterBaseReveal';
+import Link from 'next/link';
 import { Zap, Feather, Wind, Music, Lightbulb } from 'lucide-react';
 
 export default function ClassesPage() {
@@ -11,13 +12,13 @@ export default function ClassesPage() {
     <ThemeProvider
       defaultButtonVariant="hover-magnetic"
       defaultTextAnimation="reveal-blur"
-      borderRadius="sharp"
+      borderRadius="rounded"
       contentWidth="medium"
       sizing="medium"
-      background="noiseDiagonalGradient"
-      cardStyle="shadow-colored"
-      primaryButtonStyle="neon-glow-border"
-      secondaryButtonStyle="minimal"
+      background="circleGradient"
+      cardStyle="glass-elevated"
+      primaryButtonStyle="gradient"
+      secondaryButtonStyle="glass"
       showBlurBottom={false}
     >
       <div id="nav" data-section="nav">
@@ -26,11 +27,16 @@ export default function ClassesPage() {
           navItems={[
             { name: "Home", id: "/" },
             { name: "About", id: "/about" },
-            { name: "Classes", id: "classes" },
-            { name: "Team", id: "/about" },
+            { name: "Classes", id: "/classes" },
             { name: "Contact", id: "/contact" }
           ]}
         />
+        <div className="hidden">
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+          <Link href="/classes">Classes</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
       </div>
 
       <div id="classes" data-section="classes">
@@ -59,8 +65,8 @@ export default function ClassesPage() {
             title: "Studio",
             items: [
               { label: "About Us", href: "/about" },
-              { label: "Our Classes", href: "classes" },
-              { label: "Meet Our Team", href: "/about" }
+              { label: "Our Classes", href: "/classes" },
+              { label: "Contact", href: "/contact" }
             ]
           },
           {
